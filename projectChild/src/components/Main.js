@@ -1,13 +1,15 @@
-import * as React from 'react';
-import App from './App';
-import "./styles.css";
+import React from 'react';
+import Button from './Button';
 
 export default function MainApp() {
-  const [name, setName] = React.useState(null);
   return (
     <>
-      <h3 style={{ textAlign: 'center' }}>{ name ? <p>Your name is: {name}</p> : null }</h3>
-      <App onChange={(e) => setName(e.target.value)} />
+      <p>預覽畫面</p>
+
+      <Button
+        handleClick={() => console.log("work")}
+        value="Click"
+      />
     </>
   );
 }

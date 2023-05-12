@@ -50,10 +50,10 @@ module.exports ={
       template: path.resolve(__dirname, "public", "index.html"),
     }),
     new ModuleFederationPlugin({
-      name: "FIRST_APP",
+      name: "PROJECT_CHILD",
       filename: "remoteEntry.js",
       exposes: {
-        "./app": "./src/components/App",
+        "./button": "./src/components/Button",
       },
     }),
   ],

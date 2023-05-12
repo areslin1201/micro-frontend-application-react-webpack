@@ -48,7 +48,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "MICRO",
       remotes: {
-        FIRST_APP: "FIRST_APP@http://localhost:4000/remoteEntry.js",
+        PROJECT_CHILD: "PROJECT_CHILD@http://localhost:4000/remoteEntry.js",
       },
     }),
   ],

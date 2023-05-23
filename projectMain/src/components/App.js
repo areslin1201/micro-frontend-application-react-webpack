@@ -1,21 +1,44 @@
-import React, { lazy, Suspense } from "react";
-
-const Button = lazy(() => import("PROJECT_CHILD/button"));
+import React from "react";
+import {
+  BrowserRouter,
+  Route,
+  Link,
+  Routes
+} from 'react-router-dom'
+import Home from '../pages/Home'
+import Other from '../pages/Other'
 
 const App = () => {
   return (
-    <div className="App">
+    <BrowserRouter>
       <p>Main 預覽畫面</p>
+      <Link to="/">home</Link> /
+      <Link to="/other">other</Link> /
+      <Link to="/admin">admin</Link> /
 
-      <div>
-        <Suspense fallback={<span>Loading...</span>}>
-          <Button
-            handleClick={() => console.log("show")}
-            value="show"
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/other" element={<Other />} />
+        <Route
+          path="admin"
+          element={
+            <div>
+              <h1>Layout</h1>
+              <Outlet />
+            </div>
+          }
+        >
+          <Route
+            path="one"
+            element={<>one</>}
           />
-        </Suspense>
-      </div>
-    </div>
+          <Route
+            path="two"
+            element={<>two</>}
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 
